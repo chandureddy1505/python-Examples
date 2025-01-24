@@ -1,0 +1,68 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyM5TVUu8gQMHCxQ1yTfQalh",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/chandureddy1505/python-Examples/blob/main/24-01-25\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 5,
+      "metadata": {
+        "id": "BNIRWQsfvQ_R"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import matplotlib.pyplot as plt\n",
+        "import seaborn as sns\n",
+        "import numpy as np\n",
+        "import pandas as pd\n",
+        "\n",
+        "np.random.seed(10)\n",
+        "\n",
+        "data = pd.DataFrame({\n",
+        "    'value': np.concatenate([np.random.normal(0, 10, 200), np.random.normal(15, 5, 15)])\n",
+        "})\n",
+        "\n",
+        "Q1 = data['value'].quantile(0.50)\n",
+        "Q3 = data['value'].quantile(0.90)\n",
+        "IQR = Q3 - Q1\n",
+        "\n",
+        "lower_bound = Q1 - 1.5 * IQR\n",
+        "upper_bound = Q3 + 1.5 * IQR\n",
+        "\n",
+        "outliers = data[(data['value'] < lower_bound) | (data['value'] > upper_bound)]"
+      ],
+      "metadata": {
+        "id": "hSV9r0Fj4CTv"
+      },
+      "execution_count": 6,
+      "outputs": []
+    }
+  ]
+}
