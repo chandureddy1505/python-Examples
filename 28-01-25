@@ -1,0 +1,115 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPKOfxEOk5x3cw6yRkeINg+",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/chandureddy1505/python-Examples/blob/main/28-01-25\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 2,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 219
+        },
+        "id": "7xeQ7961JJ0G",
+        "outputId": "4d8312a3-85cb-4ce9-c980-a94a3c2cd85d"
+      },
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "NameError",
+          "evalue": "name 'one_hot_encoder' is not defined",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mNameError\u001b[0m                                 Traceback (most recent call last)",
+            "\u001b[0;32m<ipython-input-2-ff487bd344af>\u001b[0m in \u001b[0;36m<cell line: 0>\u001b[0;34m()\u001b[0m\n\u001b[1;32m      5\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      6\u001b[0m \u001b[0;31m# Fit and transform the data\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 7\u001b[0;31m \u001b[0mencoded_data\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mone_hot_encoder\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mfit_transform\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mdf\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0mcolumns_to_encode\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      8\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      9\u001b[0m \u001b[0;31m# Get encoded column names\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;31mNameError\u001b[0m: name 'one_hot_encoder' is not defined"
+          ]
+        }
+      ],
+      "source": [
+        "# Assuming 'df' is your DataFrame and 'one_hot_encoder' is an instance of OneHotEncoder\n",
+        "\n",
+        "# Select columns to encode\n",
+        "columns_to_encode = [\"gender\", \"city\"]\n",
+        "\n",
+        "# Fit and transform the data\n",
+        "encoded_data = one_hot_encoder.fit_transform(df[columns_to_encode])\n",
+        "\n",
+        "# Get encoded column names\n",
+        "encoded_columns = one_hot_encoder.get_feature_names_out(columns_to_encode)\n",
+        "\n",
+        "# Create a new DataFrame for encoded data\n",
+        "encoded_df = pd.DataFrame(encoded_data, columns=encoded_columns)\n",
+        "\n",
+        "# Combine with the original DataFrame\n",
+        "final_df = pd.concat([df.drop(columns=columns_to_encode), encoded_df], axis=1)\n",
+        "\n",
+        "# Print the final DataFrame\n",
+        "print(final_df)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import pandas as pd\n",
+        "from sklearn.preprocessing import OneHotEncoder\n",
+        "\n",
+        "data = {\n",
+        "    \"customer_id\": [1, 2, 3, 4],\n",
+        "    \"gender\": [\"Male\", \"Female\", \"Female\", \"Male\"],\n",
+        "    \"city\": [\"Hyderabad\", \"pune\", \"Banglore\", \"mumbai\"]\n",
+        "}\n",
+        "\n",
+        "df = pd.DataFrame(data)\n",
+        "print(\"Original DataFrame:\")\n",
+        "print(df)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "QH-RObakPBm5",
+        "outputId": "fae2a6bd-10a9-4fe1-ff38-53b732bfb8f0"
+      },
+      "execution_count": 3,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Original DataFrame:\n",
+            "   customer_id  gender       city\n",
+            "0            1    Male  Hyderabad\n",
+            "1            2  Female       pune\n",
+            "2            3  Female   Banglore\n",
+            "3            4    Male     mumbai\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
