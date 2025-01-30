@@ -1,0 +1,75 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyODPVpZoQQm016GP7MMLJT4",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/chandureddy1505/python-Examples/blob/main/30-01-25\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 2,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "ys--ldyc6EdI",
+        "outputId": "bfa86991-7e4f-42ce-d06f-f0bfbdff0bd9"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Ola and Uber have the same fare: $90\n"
+          ]
+        }
+      ],
+      "source": [
+        "# Given values\n",
+        "x = 20  # number of kilometers traveled\n",
+        "\n",
+        "# Ola fare details\n",
+        "m_ola = 2   # rate per kilometer for Ola\n",
+        "c_ola = 50  # base fare for Ola (fixed fare)\n",
+        "\n",
+        "# Uber fare details\n",
+        "m_uber = 2.5   # rate per kilometer for Uber\n",
+        "c_uber = 35    # base fare for Uber\n",
+        "c_uber_fare = 5  # additional fixed fare for Uber\n",
+        "\n",
+        "# Calculate the total fares for both Ola and Uber\n",
+        "y_ola = (x * m_ola) + c_ola\n",
+        "y_uber = (x * m_uber) + c_uber + c_uber_fare\n",
+        "\n",
+        "# Compare the prices\n",
+        "if y_ola < y_uber:\n",
+        "    print(f\"Ola is cheaper. The fare is: ${y_ola}\")\n",
+        "elif y_ola > y_uber:\n",
+        "    print(f\"Uber is cheaper. The fare is: ${y_uber}\")\n",
+        "else:\n",
+        "    print(f\"Ola and Uber have the same fare: ${y_ola}\")\n"
+      ]
+    }
+  ]
+}
